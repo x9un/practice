@@ -169,6 +169,12 @@ margin: inherit;
 margin: initial;
 margin: unset;
 ```
+length
+以固定值为外边距。
+percentage
+相对于包含块的宽度，以百分比值为外边距。
+auto
+让浏览器自己选择一个合适的外边距。有时，在一些特殊情况下，该值可以使元素居中。
 
 ### padding
 内边距
@@ -313,7 +319,7 @@ CSS flex-direction 属性指定了内部元素是如何在 flex 容器中布局�
 
 `column`
 flex容器的主轴和块轴相同。主轴起点与主轴终点和书写模式的前后点相同
-![](imgf/00.png)
+![](imgf/04.png)
 
 ### align-items
 >
@@ -322,7 +328,7 @@ align-items属性将所有直接子节点上的align-self值设置为一个组�
 Flexbox和CSS网格布局支持此属性。在Flexbox中，它控制十字轴上项目的对齐方式，在网格布局中，它控制块轴上项目的对齐方式。
 
 center:
-![](imgf/01.png)
+![](imgf/05.png)
 如图所示，因为是center，所以上方和下方留有空余
 
 ### justify-content
@@ -371,10 +377,10 @@ The appearance property is used to display an element using a platform-native st
 CSS 属性 perspective指定了观察者与 z=0 平面的距离，使具有三维位置变换的元素产生透视效果。 z>0 的三维元素比正常大，而 z<0 时则比正常小，大小程度由该属性的值决定
 
 none
-![](imgf/02.png)
+![](imgf/06.png)
 
 800px
-![](imgf/03.png)
+![](imgf/07.png)
 
 ### border-top-left/right-radius
 
@@ -432,7 +438,7 @@ rotationX（）CSS函数定义了一个变换，该变换绕着横坐标（水�
 RGBA 即红色、绿色、蓝色、透明度（英语：Red, Green, Blue、Alpha）
 
 ### list-style-type
-![](imgf/04.png)
+![](imgf/08.png)
 
 ### box-shadow
 ```
@@ -455,7 +461,7 @@ box-shadow: 3px 3px red, -1em 0 0.4em olive;
 ### flex
 http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
 
-![](imgf/05.png)
+![](imgf/09.png)
 >容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
 
 项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
@@ -476,7 +482,7 @@ justify-content属性定义了项目在主轴上的对齐方式。
   justify-content: flex-start | flex-end | center | space-between | space-around;
 }
 ```
-![](imgf/06.png)
+![](imgf/10.png)
 
 flex-start（默认值）：左对齐
 flex-end：右对齐
@@ -638,14 +644,14 @@ crossorigin:
   <input type="range" id="vol" name="vol" min="0" max="50">
 </form>
 ```
-![](imgf/00.png)
+![](imgf/11.png)
 
 
 ## CSS
 ### flex-direction
 column-reverse:
-![](imgf/01.png)
-![](imgf/02.png)
+![](imgf/12.png)
+![](imgf/13.png)
 
 ### important
 当在一个样式声明中使用一个 !important 规则时，此声明将覆盖任何其他声明。虽然，从技术上讲，!important 与优先级无关，但它与最终的结果直接相关。使用 !important 是一个坏习惯，应该尽量避免，因为这破坏了样式表中的固有的级联规则 使得调试找bug变得更加困难了。当两条相互冲突的带有 !important 规则的声明被应用到相同的元素上时，拥有更大优先级的声明将会被采用。
@@ -868,3 +874,164 @@ fetch('http://example.com/movies.json')
 ### .toFixed()
 toFixed() 方法使用定点表示法来格式化一个数值。
 小数点后数字的个数；介于 0 到 20 （包括）之间，实现环境可能支持更大范围。如果忽略该参数，则默认为 0。
+
+# dom array methods
+## html
+### aside
+>HTML <aside> 元素表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常表现为侧边栏或者标注框（call-out boxes）。
+
+```html
+<aside>
+    <p>The Rough-skinned Newt defends itself with a deadly neurotoxin.</p>
+</aside>
+```
+![](imgf/14.png)
+### main
+>HTML <main> 元素呈现了文档的 <body> 或应用的主体部分。主体部分由与文档直接相关，或者扩展于文档的中心主题、应用的主要功能部分的内容组成。
+
+在文档中，`<main> `元素的内容应当是独一无二的。任何同时存在于任意一系列文档中的相同、重复内容，比如侧边栏、导航栏链接、版权信息、网站 Logo，搜索框（除非搜索框为文档的主要功能），都不应当被包含在其内。
+
+`<main>` 对文档的大纲（outline）没有贡献；也就是说，它与诸如 `<body>` 之类的元素，诸如 `<h2>` 之类的标题等不同，`<main>` 不会影响 DOM 的页面结构概念。它仅有提供信息的作用。（原文：It's strictly informative.）
+
+
+## css
+### max-width & width
+ 若同时设置了width和max-width两个属性，则以下面规则显示宽度
++ 当width元素小于max-width时，元素宽度以width为准
++ 若超过max-width则以max-width为准。
+
+### flex
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex
+[flex:1 到底代表什么?](https://zhuanlan.zhihu.com/p/136223806)
+>flex CSS简写属性设置了弹性项目如何增大或缩小以适应其弹性容器中可用的空间。
+
+此属性是以下CSS属性的简写：
+
+第一个参数表示: flex-grow 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
+第二个参数表示: flex-shrink 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+第三个参数表示: flex-basis给上面两个属性分配多余空间之前, 计算项目是否有多余空间, 默认值为 auto, 即项目本身的大小
+
+```css
+/* 关键字值 */
+flex: auto;
+flex: initial;
+flex: none;
+
+/* 一个值, 无单位数字: flex-grow */
+flex: 2;
+flex: 1;/*平分元素*/
+
+/* 一个值, width/height: flex-basis */
+flex: 10em;
+flex: 30px;
+flex: min-content;
+
+/* 两个值: flex-grow | flex-basis */
+flex: 1 30px;
+
+/* 两个值: flex-grow | flex-shrink */
+flex: 2 2;
+
+/* 三个值: flex-grow | flex-shrink | flex-basis */
+flex: 2 2 10%;
+
+/*全局属性值 */
+flex: inherit;
+flex: initial;
+flex: unset;
+```
+## js
+### async
+https://developer.mozilla.org/zh-CN/docs/learn/JavaScript/%E5%BC%82%E6%AD%A5/Async_await
+
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function
+
+>async函数是使用async关键字声明的函数。 async函数是AsyncFunction构造函数的实例， 并且其中允许使用await关键字。async和await关键字让我们可以用一种更简洁的方式写出基于Promise的异步行为，而无需刻意地链式调用promise。保证函数的返回值为 promise。要实际使用promise完成时返回的值，我们可以使用.then()块，因为它返回的是 promise
+
+```js
+async function name([param[, param[, ... param]]]) {
+    statements 
+}
+```
+async函数可能包含0个或者多个await表达式。await表达式会暂停整个async函数的执行进程并出让其控制权，只有当其等待的基于promise的异步操作被兑现或被拒绝之后才会恢复进程。promise的解决值会被当作该await表达式的返回值。使用async / await关键字就可以在异步代码中使用普通的try / catch代码块。
+
+async函数的函数体可以被看作是由0个或者多个await表达式分割开来的。从第一行代码直到（并包括）第一个await表达式（如果有的话）都是同步运行的。这样的话，一个不含await表达式的async函数是会同步运行的。然而，如果函数体内有一个await表达式，async函数就一定会异步执行。
+
+await 是顺序执行的，第二个 await 还是得等待第一个执行完
+事实上， await 只在异步函数里面才起作用。它可以放在任何异步的，基于 promise 的函数之前。它会暂停代码在该行上，直到 promise 完成，然后返回结果值。在暂停的同时，其他正在等待执行的代码就有机会执行了。
+
+```js
+fetch('coffee.jpg')
+.then(response => response.blob())
+.then(myBlob => {
+  let objectURL = URL.createObjectURL(myBlob);
+  let image = document.createElement('img');
+  image.src = objectURL;
+  document.body.appendChild(image);
+})
+.catch(e => {
+  console.log('There has been a problem with your fetch operation: ' + e.message);
+});
+//转换重写
+async function myFetch() {
+  let response = await fetch('coffee.jpg');
+  let myBlob = await response.blob();
+
+  let objectURL = URL.createObjectURL(myBlob);
+  let image = document.createElement('img');
+  image.src = objectURL;
+  document.body.appendChild(image);
+}
+
+myFetch()
+.catch(e => {
+  console.log('There has been a problem with your fetch operation: ' + e.message);
+});
+```
+
+await 关键字会阻塞其后的代码，直到promise完成，就像执行同步操作一样
+
+### .json()
+返回一个被解析为JSON格式的promise对象，这可以是任何可以由JSON表示的东西 - 一个object，一个array，一个string，一个number...
+
+### const
+常量是块级范围的，非常类似用 let 语句定义的变量。但常量的值是无法（通过重新赋值）改变的，也不能被重新声明。
+
+### .sort()
+sort() 方法用原地算法对数组的元素进行排序，并返回数组。默认排序顺序是在将元素转换为字符串，然后比较它们的UTF-16代码单元值序列时构建的
+```js
+arr.sort([compareFunction])
+```
+compareFunction 可选
+用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的各个字符的Unicode位点进行排序。
+firstEl
+第一个用于比较的元素。
+secondEl
+第二个用于比较的元素。
+
+如果指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：
+
+如果 compareFunction(a, b) 小于 0 ，那么 a 会被排列到 b 之前；
+如果 compareFunction(a, b) 等于 0 ， a 和 b 的相对位置不变。备注： ECMAScript 标准并不保证这一行为，而且也不是所有浏览器都会遵守（例如 Mozilla 在 2003 年之前的版本）；
+如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。
+compareFunction(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
+
+### .filter()
+filter函数可以看成是一个过滤函数，返回符合条件的元素的数组
+
+### .reduce()
+reduce() 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
+```js
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));
+// expected output: 10
+
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+// expected output: 15
+```
+
+

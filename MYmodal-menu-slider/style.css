@@ -51,146 +51,150 @@ nav ul {
   margin: 0;
 }
 
-nav ul li {
-  border-bottom: 2px solid rgba(200, 200, 200, 0.1);
-  padding: 20px;
+nav ul li{
+  border-bottom:2px solid rgba(200, 200, 200, 0.1);
+  padding:20px;
 }
 
-nav ul li:first-of-type {
-  border-top: 2px solid rgba(200, 200, 200, 0.1);
+/* means the first li element */
+nav ul li:first-of-type{
+  border-top:2px solid rgba(200, 200, 200, 0.1);
 }
 
-nav ul li a {
-  color: #fff;
+nav ul li a{
+  color:#fff;
   text-decoration: none;
 }
 
-nav ul li a:hover {
+/* 鼠标移至上方虚指时显示下划线 */
+nav ul li a:hover{
   text-decoration: underline;
 }
 
-header {
+header{
   background-color: var(--primary-color);
-  color: #fff;
-  font-size: 130%;
-  position: relative;
-  padding: 40px 15px;
-  text-align: center;
+  color:#fff;
+  font-size:130%;
+  position:relative;
+  padding:40px 15px;
+  text-align:center;
 }
 
-header h1 {
-  margin: 0;
+header h1{
+  margin:0;
 }
 
-header p {
-  margin: 30px 0;
+header p{
+  margin:30px 0;
 }
 
 button,
-input[type='submit'] {
+input[type='submit']{
   background-color: var(--secondary-color);
-  border: 0;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  padding: 8px 12px;
+  border:0;
+  border-radius:5px;
+  color:#fff;
+  cursor:pointer;
+  padding:8px 12px;
 }
 
-button:focus {
-  outline: none;
+button:focus{
+  outline:none;
 }
 
-.toggle {
+.toggle{
   background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  position:absolute;
+  top:20px;
+  left:20px;
 }
 
-.cta-btn {
-  padding: 12px 30px;
-  font-size: 20px;
+/* signup button */
+.cta-btn{
+  padding:12px 30px;
+  font-size:20px;
 }
 
-.container {
-  padding: 15px;
-  margin: 0 auto;
-  max-width: 100%;
-  width: 800px;
+.container{
+  padding:15px;
+  margin:0 auto;
+  max-width:100%;
+  width:800px;
 }
 
-.modal-container {
+/* 点击signup后的弹出框 */
+.modal-container{
   background-color: rgba(0, 0, 0, 0.6);
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
 }
 
-.modal-container.show-modal {
-  display: block;
+.modal-container.show-modal{
+  display:block;
 }
 
-.modal {
+.modal{
   background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius:5px;
+  box-shadow:0 0 10px rgba(0, 0, 0, 0.3);
   position: absolute;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100%;
-  width: 400px;
-  animation-name: modalopen;
+  overflow:hidden;
+  top:50%; 
+  left:50%;
+  transform: translate(-50%,-50%);
+  max-width:100%;
+  width:400px;
+  animation-name:modalopen;/* 为动画指定一个名称 */
   animation-duration: var(--modal-duration);
 }
 
-.modal-header {
-  background: var(--primary-color);
-  color: #fff;
-  padding: 15px;
+.modal-header{
+  background:var(--primary-color);
+  color:#fff;
+  padding:15px;
 }
 
-.modal-header h3 {
-  margin: 0;
+.modal-header h3{
+  margin:0;
   border-bottom: 1px solid #333;
 }
 
-.modal-content {
-  padding: 20px;
+.modal-content{
+  padding:20px;
 }
 
-.modal-form div {
-  margin: 15px 0;
+.modal-form div{
+  margin:15px 0;
 }
 
-.modal-form label {
+.modal-form label{
   display: block;
-  margin-bottom: 5px;
+  margin-bottom:5px;
 }
 
-.modal-form .form-input {
-  padding: 8px;
-  width: 100%;
+.modal-form .form-input{
+  padding:8px;
+  width:100%;
 }
 
-.close-btn {
-  background: transparent;
+.close-btn{
+  background:transparent;
   font-size: 25px;
-  position: absolute;
-  top: 0;
-  right: 0;
+  position:absolute;
+  top:0;
+  right:0;
 }
 
-@keyframes modalopen {
-  from {
-    opacity: 0;
+@keyframes modalopen{
+  from{
+    opacity:0;
   }
 
-  to {
-    opacity: 1;
+  to{
+    opacity:1;
   }
 }

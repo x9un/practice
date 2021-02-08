@@ -579,12 +579,11 @@ EventTarget.addEventListener() 方法将指定的监听器注册到 EventTarget 
 addEventListener()的工作原理是将实现EventListener的函数或对象添加到调用它的EventTarget上的指定事件类型的事件侦听器列表中。
 
 ### Event.target
+e.target
 触发事件的对象 (某个DOM元素) 的引用。当事件处理程序在事件的冒泡或捕获阶段被调用时，
 
-### toggle(visible)
+### .toggle(visible)
 如果 visible 类值已存在，则移除它，否则添加它
-
-
 
 # Custom Video Player
 
@@ -1033,5 +1032,137 @@ console.log(array1.reduce(reducer));
 console.log(array1.reduce(reducer, 5));
 // expected output: 15
 ```
+
+# modal-menu-slider
+## html
+### nav
+HTML `<nav>` 元素表示页面的一部分，其目的是在当前文档或其他文档中提供导航链接。导航部分的常见示例是菜单，目录和索引。
+## css
+### transition
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+
+CSS transitions 提供了一种在更改CSS属性时控制动画速度的方法。 其可以让属性变化成为一个持续一段时间的过程，而不是立即生效的。比如，将一个元素的颜色从白色改为黑色，通常这个改变是立即生效的，使用 CSS transitions 后该元素的颜色将逐渐从白色变为黑色，按照一定的曲线速率变化。这个过程可以自定义。
+
+通常将两个状态之间的过渡称为隐式过渡（implicit transitions），因为开始与结束之间的状态由浏览器决定。
+```css
+div {
+    transition: <property> <duration> <timing-function> <delay>;
+}
+```
+CSS 的一个常用地方是当鼠标悬停在菜单上时高亮此菜单，使用 transition 效果更佳。
+
+其中的transform代表过渡，ease缓移
+
+### position:fixed
+static
+该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
+
+relative
+该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。position:relative 对 table-\*-group, table-row, table-column, table-cell, table-caption 元素无效。
+
+absolute
+元素会被移出正常文档流，并不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。
+
+fixed
+元素会被移出正常文档流，并不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。fixed 属性会创建新的层叠上下文。当元素祖先的 transform, perspective 或 filter 属性非 none 时，容器由视口改为该祖先。
+
+sticky
+元素根据正常文档流进行定位，然后相对它的最近滚动祖先（nearest scrolling ancestor）和 containing block (最近块级祖先 nearest block-level ancestor)，包括table-related元素，基于top, right, bottom, 和 left的值进行偏移。偏移值不会影响任何其他元素的位置。
+该值总是创建一个新的层叠上下文（stacking context）。注意，一个sticky元素会“固定”在离它最近的一个拥有“滚动机制”的祖先上（当该祖先的overflow 是 hidden, scroll, auto, 或 overlay时），即便这个祖先不是最近的真实可滚动祖先。这有效地抑制了任何“sticky”行为
+
+### top
+top样式属性定义了定位元素的上外边距边界与其包含块上边界之间的偏移，非定位元素设置此属性无效。
+
+### z-index
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+
+z-index 属性设定了一个定位元素及其后代元素或 flex 项目的 z-order。 当元素之间重叠的时候， z-index 较大的元素会覆盖较小的元素在上层进行显示。
+
+对于一个已经定位的盒子（即其 position 属性值不是 static，这里要注意的是 CSS 把元素看作盒子），z-index 属性指定：
+
++ 盒子在当前堆叠上下文中的堆叠层级。
++ 盒子是否创建一个本地堆叠上下文。
+
+![](imgf/15.png)
+
+### transform:translate
+在translate 函数当中使用百分比是以该元素自身的宽高作为基准。
+
+### :first-of-type
+CSS 伪类 :first-of-type表示一组兄弟元素中其类型的第一个元素。
+
+### text-decoration
+text-decoration 这个CSS 属性是用于设置文本的修饰线外观的（下划线、上划线、贯穿线/删除线 或闪烁）
+
+### overflow
+CSS属性 overflow 定义当一个元素的内容太大而无法适应 块级格式化上下文 时候该做什么。它是 overflow-x 和overflow-y的 简写属性 。
+![](imgf/16.png)
+
+### animation
+该属性的子animation属性为：
+
+animation-name
+指定@keyframes描述动画关键帧的规则名称。
+
+animation-duration
+配置动画完成一个周期所需的时间。
+
+animation-timing-function
+配置动画的时间；也就是说，通过建立加速曲线，动画如何在关键帧之间过渡。
+
+animation-delay
+配置元素加载时间与动画序列开始之间的延迟。
+
+animation-iteration-count
+配置动画应重复的次数；您可以指定infinite无限期重复动画。
+
+animation-direction
+配置动画在序列中每次运行时是否应交替显示方向或重置为起点并重复自身。
+
+animation-fill-mode
+配置动画在执行之前和之后应用的值。
+
+animation-play-state
+使您可以暂停和恢复动画序列。
+
+### @keyframes
+与animation-nam相配合
+```css
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+```
+关键帧 @keyframes at-rule 规则通过在动画序列中定义关键帧（或waypoints）的样式来控制CSS动画序列中的中间步骤。和 转换 transition 相比，关键帧 keyframes 可以控制动画序列的中间步骤。
+
+### opacity
+opacity属性指定了一个元素的不透明度。换言之，opacity属性指定了一个元素后面的背景的被覆盖程度。
+```css
+/* 完全不透明 */
+opacity: 1;
+opacity: 1.0;
+
+/* 半透明 */
+opacity: 0.6;
+
+/* 完全透明 */
+opacity: 0.0;
+opacity: 0;
+
+opacity: inherit;
+```
+## js
+### .contains()
+Node.contains()返回的是一个布尔值，来表示传入的节点是否为该节点的后代节点。
+
+### .removeEventListener()
+
 
 

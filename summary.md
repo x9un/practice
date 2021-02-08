@@ -106,6 +106,16 @@ block元素的特点是：
 宽度缺省是它的容器的100%，除非设定一个宽度
 <div>, <p>, <h1>, <form>, <ul> 和 <li>是块元素的例子。
 
+svg的display:none 线条会消失
+
+display:inline-flex 
+元素的行为类似于内联元素，并根据flexbox模型布置其内容。
+等同于inline flex。
+
+flex： 将对象作为弹性伸缩盒显示
+inline-flex：将对象作为内联块级弹性伸缩盒显示
+当Flex Box 容器没有设置宽度大小限制时，当display 指定为 flex 时，FlexBox 的宽度会填充父容器，当display指定为 inline-flex 时，FlexBox的宽度会包裹子Item
+
 ### align-items
 >CSS align-items属性将所有直接子节点上的align-self值设置为一个组。 align-self属性设置项目在其包含块中在交叉轴方向上的对齐方式。
 ![](imgf/01.png)
@@ -1164,5 +1174,49 @@ Node.contains()返回的是一个布尔值，来表示传入的节点是否为�
 
 ### .removeEventListener()
 
+# Hangman
+## html
+### svg
+可缩放矢量图形（Scalable Vector Graphics，SVG），是一种用于描述二维的矢量图形，基于 XML 的标记语言。作为一个基于文本的开放网络标准，SVG能够优雅而简洁地渲染不同大小的图形，并和CSS，DOM，JavaScript和SMIL等其他网络标准无缝衔接。
 
+### svg line & circle
+line元素是一个SVG基本形状，用来创建一条连接两个点的线。
 
+## css
+### fill & stroke & stroke-linecap
+fill属性设置对象内部的颜色，stroke属性设置绘制对象的线条的颜色
+![](imgf/17.png)
+
+### :active
+CSS `:active` 伪类匹配被用户激活的元素。它让页面能在浏览器监测到激活时给出反馈。当用鼠标交互时，它代表的是用户按下按键和松开按键之间的时间。
+
+### border-radius
+边框右上角和左下角的圆角半径。只在双值或三值语法中使用
+```css
+.round {
+   border-radius: 5px 10px 15px 20px; /* top left, top right, bottom right, bottom left */
+}
+```
+
+## js
+### .includes()
+string/array
+
+### setTimeout
+setTimeout()方法设置一个定时器，该定时器在定时器到期后执行一个函数或指定的一段代码。
+
+### keydown
+按下键时会触发keydown事件。 与keypress事件不同，所有按键都会触发keydown事件，无论它们是否产生字符值。
+
+获取键盘字符 e.key
+
+### .splice()
+splice() 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。
+```js
+//从第 2 位开始删除所有元素
+var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+var removed = myFish.splice(2);
+
+// 运算后的 myFish: ["angel", "clown"]
+// 被删除的元素: ["mandarin", "sturgeon"]
+```

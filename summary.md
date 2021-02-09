@@ -67,7 +67,7 @@ border-box 告诉浏览器：你想要设置的边框和内边距的值是包含
 }
 ```
 
-### position:relative
+### position: relative
 当一个元素的position属性设置为relative，它将使用相对定位。 相对定位的元素在普通流中进行定位，它将出现在文档流中原本的位置。 然而，可以通过设置水平或垂直偏移量，使它相对于原本的位置，偏移指定的距离，移动到新的位置。position:relative 对 table-\*-group, table-row, table-column, table-cell, table-caption 元素无效。
 
 ```css
@@ -115,6 +115,12 @@ display:inline-flex
 flex： 将对象作为弹性伸缩盒显示
 inline-flex：将对象作为内联块级弹性伸缩盒显示
 当Flex Box 容器没有设置宽度大小限制时，当display 指定为 flex 时，FlexBox 的宽度会填充父容器，当display指定为 inline-flex 时，FlexBox的宽度会包裹子Item
+
+>display:inline-block将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内，允许空格。
+inline-block的元素特点：
+将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内，允许空格。
+(准确地说，应用此特性的元素呈现为内联对象，周围元素保持在同一行，但可以设置宽度和高度地块元素的属性)
+![](imgf/18.png)
 
 ### align-items
 >CSS align-items属性将所有直接子节点上的align-self值设置为一个组。 align-self属性设置项目在其包含块中在交叉轴方向上的对齐方式。
@@ -641,8 +647,9 @@ crossorigin:
     ></video>
 ```
 
-### i
+### i 标签
 `<i>` 标签显示斜体文本效果。
+例子:作为按钮中的图标显示
 
 ### input-type:range
 `<input type =“ range”>`定义了一个控件，用于输入其确切值不重要的数字（如滑块控件）。 默认范围是0到100。但是，您可以使用min，max和step属性设置对可接受的数字的限制
@@ -1220,3 +1227,30 @@ var removed = myFish.splice(2);
 // 运算后的 myFish: ["angel", "clown"]
 // 被删除的元素: ["mandarin", "sturgeon"]
 ```
+
+# meal-finder
+## css
+### display: grid;
+>CSS 网格布局擅长于将一个页面划分为几个主要区域，以及定义这些区域的大小、位置、层次等关系（前提是HTML生成了这些区域）。
+像表格一样，网格布局让我们能够按行或列来对齐元素。 然而在布局上，网格比表格更可能做到或更简单。 例如，网格容器的子元素可以自己定位，以便它们像CSS定位的元素一样，真正的有重叠和层次。
+
+### grid-template-columns
+该属性是基于网格列的维度，去定义网格线的名称和网格轨道的尺寸大小。
+`<flex>`
+非负值，用单位 fr 来定义网格轨道大小的弹性系数。 每个定义了 `<flex>` 的网格轨道会按比例分配剩余的可用空间。当外层用一个 minmax() 表示时，它将是一个自动最小值(即 minmax(auto, `<flex>`) ) .
+```
+grid-template-columns: repeat(4, 1fr);
+```
+
+### grid-gap
+gap 属性是用来设置网格行与列之间的间隙（gutters），该属性是row-gap and column-gap的简写形式。
+该属性用来表示 <'row-gap'> 和 <'column-gap'>的值，而<'column-gap'>是可选的，假如 <'column-gap'> 缺失的话，则会被设置成跟<'row-gap'>一样的的值。
+
+### letter-spacing
+用于设置文本字符的间距表现
+
+### line-height
+
+## js
+### e.path
+需要获取触发事件元素冒泡过程的所有元素，在Chrome中可以通过event.path获取。

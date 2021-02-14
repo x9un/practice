@@ -162,6 +162,9 @@ box-shadow: 3px 3px red, -1em 0 0.4em olive;
 box-shadow: inherit;
 box-shadow: initial;
 box-shadow: unset;
+
+/* 左右边 上下边 */
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 ```
 
 ### margin
@@ -505,6 +508,9 @@ flex-end：右对齐
 center： 居中
 space-between：两端对齐，项目之间的间隔都相等。
 space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+
+flex:1
+一个无单位数(`<number>`): 它会被当作flex:`<number>` 1 0; `<flex-shrink>`的值被假定为1，然后`<flex-basis>` 的值被假定为0。
 
 ## js
 ### .querySelectorAll()
@@ -1254,3 +1260,19 @@ gap 属性是用来设置网格行与列之间的间隙（gutters），该属性
 ## js
 ### e.path
 需要获取触发事件元素冒泡过程的所有元素，在Chrome中可以通过event.path获取。
+
+# expense trancker
+## css
+### text-transform
+指定如何将元素的文本大写。它可以用于使文本显示为全大写或全小写，也可单独对每一个单词进行操作
+
+### >
+大于号代表选择子元素
+```html
+<body>
+  <div id="我被选择" class="1">
+    <div class="2">我没有被选择</div>
+  </div>
+</body>
+```
+body>div 只能选择class="1"的div，因为它是body的子代。而class="2"的div没有被选择。

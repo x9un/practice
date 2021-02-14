@@ -67,7 +67,8 @@ border-box 告诉浏览器：你想要设置的边框和内边距的值是包含
 }
 ```
 
-### position: relative
+### position
++ relative
 当一个元素的position属性设置为relative，它将使用相对定位。 相对定位的元素在普通流中进行定位，它将出现在文档流中原本的位置。 然而，可以通过设置水平或垂直偏移量，使它相对于原本的位置，偏移指定的距离，移动到新的位置。position:relative 对 table-\*-group, table-row, table-column, table-cell, table-caption 元素无效。
 
 ```css
@@ -88,6 +89,22 @@ border-box 告诉浏览器：你想要设置的边框和内边距的值是包含
 ```
 
 ![](imgf/00.png)
+
++ static
+该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
+
++ relative
+该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。position:relative 对 table-\*-group, table-row, table-column, table-cell, table-caption 元素无效。
+
++ absolute
+元素会被移出正常文档流，并不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。
+
++ fixed
+元素会被移出正常文档流，并不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。fixed 属性会创建新的层叠上下文。当元素祖先的 transform, perspective 或 filter 属性非 none 时，容器由视口改为该祖先。
+
++ sticky
+元素根据正常文档流进行定位，然后相对它的最近滚动祖先（nearest scrolling ancestor）和 containing block (最近块级祖先 nearest block-level ancestor)，包括table-related元素，基于top, right, bottom, 和 left的值进行偏移。偏移值不会影响任何其他元素的位置。
+该值总是创建一个新的层叠上下文（stacking context）。注意，一个sticky元素会“固定”在离它最近的一个拥有“滚动机制”的祖先上（当该祖先的overflow 是 hidden, scroll, auto, 或 overlay时），即便这个祖先不是最近的真实可滚动祖先。这有效地抑制了任何“sticky”行为
 
 ### visibility:hidden
 元素框是不可见的（未绘制），但仍会正常影响布局。如果他们的元素的后代将是可见的visibility设置visible。元素无法获得焦点（例如，在选项卡索引中导航时）。
@@ -1076,22 +1093,7 @@ CSS 的一个常用地方是当鼠标悬停在菜单上时高亮此菜单，使�
 
 其中的transform代表过渡，ease缓移
 
-### position:fixed
-static
-该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
 
-relative
-该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。position:relative 对 table-\*-group, table-row, table-column, table-cell, table-caption 元素无效。
-
-absolute
-元素会被移出正常文档流，并不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。
-
-fixed
-元素会被移出正常文档流，并不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。fixed 属性会创建新的层叠上下文。当元素祖先的 transform, perspective 或 filter 属性非 none 时，容器由视口改为该祖先。
-
-sticky
-元素根据正常文档流进行定位，然后相对它的最近滚动祖先（nearest scrolling ancestor）和 containing block (最近块级祖先 nearest block-level ancestor)，包括table-related元素，基于top, right, bottom, 和 left的值进行偏移。偏移值不会影响任何其他元素的位置。
-该值总是创建一个新的层叠上下文（stacking context）。注意，一个sticky元素会“固定”在离它最近的一个拥有“滚动机制”的祖先上（当该祖先的overflow 是 hidden, scroll, auto, 或 overlay时），即便这个祖先不是最近的真实可滚动祖先。这有效地抑制了任何“sticky”行为
 
 ### top
 top样式属性定义了定位元素的上外边距边界与其包含块上边界之间的偏移，非定位元素设置此属性无效。
@@ -1147,6 +1149,10 @@ animation-fill-mode
 
 animation-play-state
 使您可以暂停和恢复动画序列。
+```
+animation-play-state: paused;
+}
+```
 
 ### @keyframes
 与animation-nam相配合
@@ -1162,6 +1168,15 @@ animation-play-state
   }
 }
 
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
 ```
 关键帧 @keyframes at-rule 规则通过在动画序列中定义关键帧（或waypoints）的样式来控制CSS动画序列中的中间步骤。和 转换 transition 相比，关键帧 keyframes 可以控制动画序列的中间步骤。
 
@@ -1276,3 +1291,112 @@ gap 属性是用来设置网格行与列之间的间隙（gutters），该属性
 </body>
 ```
 body>div 只能选择class="1"的div，因为它是body的子代。而class="2"的div没有被选择。
+
+# music player
+## html
+### audio
+```html
+<audio src="music/ukulele.mp3" id="audio"></audio>
+```
+## css
+### background-image:linear-gradient
+CSS background-image 属性用于为一个元素设置一个或者多个背景图像
+
+CSS linear-gradient() 函数用于创建一个表示两种或多种颜色线性渐变的图片。其结果属于`<gradient>`数据类型，是一种特别的`<image>`数据类型。
+```css
+/* 渐变轴为45度，从蓝色渐变到红色 */
+linear-gradient(45deg, blue, red);
+
+/* 从右下到左上、从蓝色渐变到红色 */
+linear-gradient(to left top, blue, red);
+
+/* 从下到上，从蓝色开始渐变、到高度40%位置是绿色渐变开始、最后以红色结束 */
+linear-gradient(0deg, blue, green 40%, red);
+```
+### ::after
+CSS伪元素::after用来创建一个伪元素，作为已选中元素的最后一个子元素。通常会配合content属性来为该元素添加装饰内容。这个虚拟元素默认是行内元素。
+```css
+/* Add an arrow after links */
+a::after {
+  content: "→";
+}
+```
+### object-fit
+object-fit CSS 属性指定可替换元素的内容应该如何适应到其使用的高度和宽度确定的框。
+
++ contain
+被替换的内容将被缩放，以在填充元素的内容框时保持其宽高比。 整个对象在填充盒子的同时保留其长宽比，因此如果宽高比与框的宽高比不匹配，该对象将被添加“黑边”。
++ cover
+被替换的内容在保持其宽高比的同时填充元素的整个内容框。如果对象的宽高比与内容框不相匹配，该对象将被剪裁以适应内容框。
++ fill
+被替换的内容正好填充元素的内容框。整个对象将完全填充此框。如果对象的宽高比与内容框不相匹配，那么该对象将被拉伸以适应内容框。
++ none
+被替换的内容将保持其原有的尺寸。
++ scale-down
+内容的尺寸与 none 或 contain 中的一个相同，取决于它们两个之间谁得到的对象尺寸会更小一些。
+
+### calc()
+calc() 此 CSS 函数允许在声明 CSS 属性值时执行一些计算
+```
+width: calc(100% - 40px);
+```
+
+## js
+### srcElement
+Event.srcElement 是标准的 Event.target 属性的一个别名。它只对老版本的IE浏览器有效。
+event.srcElement：表示可以获取当前作用事件的对象。
+event.target：事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。
+### this
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this
+
+当前执行上下文（global、function 或 eval）的一个属性，在非严格模式下，总是指向一个对象，在严格模式下可以是任意值。
+
+无论是否在严格模式下，在全局执行环境中（在任何函数体外部）this 都指向全局对象。
+```js
+// 在浏览器中, window 对象同时也是全局对象：
+console.log(this === window); // true
+
+a = 37;
+console.log(window.a); // 37
+
+this.b = "MDN";
+console.log(window.b)  // "MDN"
+console.log(b)         // "MDN"
+```
+
+在函数内部，this的值取决于函数被调用的方式。
+因为下面的代码不在严格模式下，且 this 的值不是由该调用设置的，所以 this 的值默认指向全局对象，浏览器中就是 window。
+```js
+function f1(){
+  return this;
+}
+//在浏览器中：
+f1() === window;   //在浏览器中，全局对象是window
+
+//在Node中：
+f1() === globalThis;
+```
+
+然而，在严格模式下，如果进入执行环境时没有设置 this 的值，this 会保持为 undefined，如下：
+```js
+function f2(){
+  "use strict"; // 这里是严格模式
+  return this;
+}
+
+f2() === undefined; // true
+```
+
+情况1：如果一个函数中有this，但是它没有被上一级的对象所调用，那么this指向的就是window，这里需要说明的是在js的严格版中this指向的不是window，但是我们这里不探讨严格版的问题，你想了解可以自行上网查找。
+
+情况2：如果一个函数中有this，这个函数有被上一级的对象所调用，那么this指向的就是上一级的对象。
+
+情况3：如果一个函数中有this，这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象，例子3可以证明，如果不相信，那么接下来我们继续看几个例子。
+
+this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的
+如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。
+还有一点就是虽然null也是对象，但是在这里this还是指向那个函数的实例，因为null比较特殊。
+### clientWidth
+Element.clientWidth 属性表示元素的内部宽度，以像素计。该属性包括内边距 padding，但不包括边框 border、外边距 margin 和垂直滚动条（如果有的话）。
+### offsetX
+offsetX 规定了事件对象与目标节点的内填充边（padding edge）在 X 轴方向上的偏移量。

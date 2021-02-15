@@ -1400,3 +1400,8 @@ this永远指向的是最后调用它的对象，也就是看它执行的时候�
 Element.clientWidth 属性表示元素的内部宽度，以像素计。该属性包括内边距 padding，但不包括边框 border、外边距 margin 和垂直滚动条（如果有的话）。
 ### offsetX
 offsetX 规定了事件对象与目标节点的内填充边（padding edge）在 X 轴方向上的偏移量。
+
+# infinite scrolling
+## js
+### Document.documentElement 
+是一个会返回文档对象（document）的根元素的只读属性（如HTML文档的 <html> 元素）。

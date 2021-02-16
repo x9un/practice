@@ -122,6 +122,7 @@ block元素的特点是：
 高度，行高以及顶和底边距都可控制；
 宽度缺省是它的容器的100%，除非设定一个宽度
 <div>, <p>, <h1>, <form>, <ul> 和 <li>是块元素的例子。
+此时进行 margin:auto可使元素居中
 
 svg的display:none 线条会消失
 
@@ -210,7 +211,7 @@ length
 percentage
 相对于包含块的宽度，以百分比值为外边距。
 auto
-让浏览器自己选择一个合适的外边距。有时，在一些特殊情况下，该值可以使元素居中。
+让浏览器自己选择一个合适的外边距。有时，在一些特殊情况下，该值可以使元素居中。水平居中
 
 ### padding
 内边距
@@ -1123,6 +1124,17 @@ text-decoration 这个CSS 属性是用于设置文本的修饰线外观的（下
 CSS属性 overflow 定义当一个元素的内容太大而无法适应 块级格式化上下文 时候该做什么。它是 overflow-x 和overflow-y的 简写属性 。
 ![](imgf/16.png)
 
+visible
+默认值。内容不会被修剪，可以呈现在元素框之外。
+hidden
+如果需要，内容将被剪裁以适合填充框。 不提供滚动条。
+scroll
+如果需要，内容将被剪裁以适合填充框。 浏览器显示滚动条，无论是否实际剪切了任何内容。 （这可以防止滚动条在内容更改时出现或消失。）打印机仍可能打印溢出的内容。
+auto
+取决于用户代理。 如果内容适合填充框内部，则它看起来与可见内容相同，但仍会建立新的块格式化上下文。 如果内容溢出，桌面浏览器会提供滚动条。
+overlay 
+行为与auto相同，但滚动条绘制在内容之上而不是占用空间。 仅在基于WebKit（例如，Safari）和基于Blink的（例如，Chrome或Opera）浏览器中受支持。
+
 ### animation
 该属性的子animation属性为：
 
@@ -1450,3 +1462,42 @@ setInterval(function(){
 ```
 ### clearInterval()
 取消掉用setInterval设置的重复执行动作
+
+# speech text reader
+## html
+### textarea 
+有一个area的text
+
+## css
+### float
+float CSS属性指定一个元素应沿其容器的左侧或右侧放置，允许文本和内联元素环绕它。该元素从网页的正常流动(文档流)中移除，尽管仍然保持部分的流动性（与绝对定位相反）。
+
+## js
+### SpeechSynthesisUtterance()
+在SpeechSynthesisUtterance该界面的Web Speech API的代表发言请求。它包含语音服务应阅读的内容以及如何阅读的信息（例如语言，音调和音量）。
+
+SpeechSynthesis.speak()
+添加一个 utterance 到语音谈话队列；它将会在其他语音谈话播放完之后播放。
+
+### .find()
+find() 方法返回通过测试（函数内判断）的数组的第一个元素的值。
+
+find() 方法为数组中的每个元素都调用一次函数执行：
+
+当数组中的元素在测试条件时返回 true 时, find() 返回符合条件的元素，之后的值不会再调用执行函数。
+如果没有符合条件的元素返回 undefined
+注意: find() 对于空数组，函数是不会执行的。
+
+注意: find() 并没有改变数组的原始值。
+```js
+var ages = [3, 10, 18, 20];
+ 
+function checkAdult(age) {
+    return age >= 18;
+}
+ 
+function myFunction() {
+    document.getElementById("demo").innerHTML = ages.find(checkAdult);
+}
+//18
+```

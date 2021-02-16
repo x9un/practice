@@ -1404,4 +1404,49 @@ offsetX 规定了事件对象与目标节点的内填充边（padding edge）在
 # infinite scrolling
 ## js
 ### Document.documentElement 
-是一个会返回文档对象（document）的根元素的只读属性（如HTML文档的 <html> 元素）。
+是一个会返回文档对象（document）的根元素的只读属性（如HTML文档的 `<html>` 元素）。
+
+# typing game
+## html
+### input
+autocomplete
+autocomplete 属性规定输入字段是否应该启用自动完成功能。
+自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，浏览器基于之前键入过的值，应该显示出在字段中填写的选项。
+注释：autocomplete 属性适用于 `<form>`，以及下面的 `<input>` 类型：text, search, url, telephone, email, password, datepickers, range 以及 color。
+```html
+<input autocomplete="value">
+```
+
+autofocus 属性规定当页面加载时 `<input>` 元素应该自动获得焦点。
+```html
+<input
+        type="text"
+        id="text"
+        autocomplete="off"
+        placeholder="Type the word here..."
+        autofocus
+      />
+```
+### location.reload()
+```html
+ <button onclick="location.reload()">Reload</button>
+ ```
+ Location.reload() 方法用来刷新当前页面。该方法只有一个参数，当值为 true 时，将强制浏览器从服务器加载页面资源，当值为 false 或者未传参时，浏览器则可能从缓存中读取页面。
+
+该方法在跨域调用（执行该方法的脚本文件的域和 Location 对象所在页面的跨不同）时，将会抛出 DOMException 异常
+
+## js
+### .focus()
+focused at the beginning
+### setInterval()
+[js计数器方法setInterval()、clearInterval()、setTimeout()和clearTimeout()
+](https://segmentfault.com/a/1190000002475127)
+
+周期性地调用一个函数(function)或者执行一段代码。
+```js
+setInterval(function(){
+    console.log("log")
+},1000)
+```
+### clearInterval()
+取消掉用setInterval设置的重复执行动作

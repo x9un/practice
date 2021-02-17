@@ -1331,7 +1331,17 @@ linear-gradient(to left top, blue, red);
 linear-gradient(0deg, blue, green 40%, red);
 ```
 ### ::after
+css的伪元素，之所以被称为伪元素，是因为他们不是真正的页面元素，html没有对应的元素，但是其所有用法和表现行为与真正的页面元素一样，可以对其使用诸如页面元素一样的css样式，表面上看上去貌似是页面的某些元素来展现，实际上是css样式展现的行为，因此被称为伪元素
+[css伪元素:before和:after用法详解](https://www.cnblogs.com/wonyun/p/5807191.html)
 CSS伪元素::after用来创建一个伪元素，作为已选中元素的最后一个子元素。通常会配合content属性来为该元素添加装饰内容。这个虚拟元素默认是行内元素。
+
+这个两个伪元素在真正页面元素内部之前和之后添加新内容（当然了，可以对伪元素应用定位可以置于任何位置
+
+设置:before和:after时必须设置其content属性，否则伪元素就不起作用
+
+伪元素不属于文档，所以js无法操作它
+
+伪元素属于主元素的一部分，因此点击伪元素触发的是主元素的click事件
 ```css
 /* Add an arrow after links */
 a::after {
@@ -1529,3 +1539,28 @@ CSS 属性backface-visibility 指定当元素背面朝向观察者时是否可�
 backface-visibility: visible;
 backface-visibility: hidden;
 ```
+
+# lyrics search
+## css
+### :active
+CSS :active 伪类匹配被用户激活的元素。它让页面能在浏览器监测到激活时给出反馈。当用鼠标交互时，它代表的是用户按下按键和松开按键之间的时间。
+```css
+
+button:active {                                                                                            
+  transform: scale(0.95);
+}
+```
+### header img设置
+```css
+  background-image: url('...');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+```
++ background-size 设置背景图片大小。图片可以保有其原有的尺寸，或者拉伸到新的尺寸，或者在保持其原有比例的同时缩放到元素的可用空间的尺寸。
+cover
+缩放背景图片以完全覆盖背景区，可能背景图片部分看不见。和 contain 值相反，cover 值尽可能大的缩放背景图像并保持图像的宽高比例（图像不会被压扁）。该背景图以它的全部宽或者高覆盖所在容器。当容器和背景图大小不同时，背景图的 左/右 或者 上/下 部分会被裁剪。
+
++ background-position
+background-position 为每一个背景图片设置初始位置。 这个位置是相对于由 background-origin 定义的位置图层的。
+两个值的语法: 一个定义 x 坐标，另一个定义 y 坐标。

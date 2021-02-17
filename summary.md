@@ -70,6 +70,8 @@ border-box 告诉浏览器：你想要设置的边框和内边距的值是包含
 ### position
 + relative
 当一个元素的position属性设置为relative，它将使用相对定位。 相对定位的元素在普通流中进行定位，它将出现在文档流中原本的位置。 然而，可以通过设置水平或垂直偏移量，使它相对于原本的位置，偏移指定的距离，移动到新的位置。position:relative 对 table-\*-group, table-row, table-column, table-cell, table-caption 元素无效。
+相对定位元素经常被用来作为绝对定位元素的容器块。
+
 
 ```css
 .box {
@@ -1163,6 +1165,9 @@ animation-direction
 
 animation-fill-mode
 配置动画在执行之前和之后应用的值。
+forwards
+目标将保留由执行期间遇到的最后一个关键帧计算值。 最后一个关键帧取决于animation-direction和animation-iteration-count的值
+
 
 animation-play-state
 使您可以暂停和恢复动画序列。
@@ -1564,3 +1569,29 @@ cover
 + background-position
 background-position 为每一个背景图片设置初始位置。 这个位置是相对于由 background-origin 定义的位置图层的。
 两个值的语法: 一个定义 x 坐标，另一个定义 y 坐标。
+
+# relaxer
+## css
+### conic-gradient()
+https://www.cnblogs.com/coco1s/p/7079529.html
+圆锥渐变 起始点是图形中心，然后以顺时针方向绕中心实现渐变效果
+```css
+.gradient-circle {
+  background: conic-gradient(
+    #55b7a4 0%,
+    #4ca493 40%,
+    #fff 40%,
+    #fff 60%,
+    #336d62 60%,
+    #2a5b52 100%
+  );
+}
+```
+![](imgf/19.png)
+
+### transform-origin
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-origin
+
+```css
+transform-origin: x-axis y-axis z-axis;
+```

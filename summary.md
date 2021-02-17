@@ -465,6 +465,11 @@ transform: scale(1.2);
 
 transform: rotateX(-45deg);
 rotationX（）CSS函数定义了一个变换，该变换绕着横坐标（水平轴）旋转元素而不会变形
+rotateY() 函数定义了一个转换，它可以让一个元素围绕纵坐标(垂直轴)旋转，而不会对其进行变形
+当rotate()中的值为正值时，顺时针旋转
+rotateX(deg)  定义沿着X轴的3D旋转
+rotateY(deg)  定义沿着Y轴的3D旋转
+rotateZ(deg)  定义沿着Z轴的3D旋转
 
 ### not
 .seat:not(.occupied):hover
@@ -1500,4 +1505,27 @@ function myFunction() {
     document.getElementById("demo").innerHTML = ages.find(checkAdult);
 }
 //18
+```
+
+# memory cards
+## css
+### transform-style
+CSS 属性 transform-style 设置元素的子元素是位于 3D 空间中还是平面中。
+如果选择平面，元素的子元素将不会有 3D 的遮挡关系。
+```css
+/* Keyword values */
+transform-style: flat;
+transform-style: preserve-3d;
+
+/* Global values */
+transform-style: inherit;
+transform-style: initial;
+transform-style: unset;
+```
+### backface-visibility
+CSS 属性backface-visibility 指定当元素背面朝向观察者时是否可见。
+```css
+/* Keyword values */
+backface-visibility: visible;
+backface-visibility: hidden;
 ```

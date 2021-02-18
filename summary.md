@@ -808,6 +808,12 @@ alt:alt 属性是一个必需的属性，它规定在图像无法显示时的替
 ## css
 ### background-image
 url('')
+一般会跟上
+  background-repeat
+  background-size
+  background-position
+  overflow
+样式设置
 ### background-position
 ```css
 /* Keyword values */
@@ -1652,3 +1658,58 @@ void ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
 /*  圆弧路径的圆心在 (x, y) 位置，半径为 r ，根据anticlockwise （默认为顺时针）指定的方向从 startAngle 开始绘制，到 endAngle 结束 */
 ```
 fill（）方法填充当前图形（路径）。默认颜色是黑色。
+
+# New Year Countdown
+## css
+### 增加一个dark overlay
+```css
+/* Add a dark overlay */
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+```
+### 绝对定位下的居中
+```css
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+```
+做好left和translateX的协调
+
+## js
+### Date()
+getFullYear()
+使用 getFullYear() 获取年份。
+
+getTime()
+getTime() 返回从 1970 年 1 月 1 日至今的毫秒数。
+
+setFullYear()
+如何使用 setFullYear() 设置具体的日期。
+
+toUTCString()
+如何使用 toUTCString() 将当日的日期（根据 UTC）转换为字符串。
+
+getDay()
+如何使用 getDay() 和数组来显示星期，而不仅仅是数字。
+
+Display a clock
+如何在网页上显示一个钟表。
+
+```js
+new Date();
+new Date(value);
+new Date(dateString);
+new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]]);
+
+var today = new Date()
+var d1 = new Date("October 13, 1975 11:13:00")
+var d2 = new Date(79,5,24)
+var d3 = new Date(79,5,24,11,33,0)
+```

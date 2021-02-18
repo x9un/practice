@@ -1730,3 +1730,12 @@ $(document).ready(function(){
     $("span").closest("ul").css({"color":"red","border":"2px solid red"});
 });
 ```
+
+# speak number guess
+## js
+### window.SpeechRecognition
+https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
+在SpeechRecognition该界面的Web语音API是用于识别服务的控制器接口; 这也处理SpeechRecognitionEvent来自识别服务的发送。
+
+### .isNaN()
+如果 x 是特殊的非数字值 NaN（或者能被转换为这样的值），返回的值就是 true。如果 x 是其他值,则返回 false。

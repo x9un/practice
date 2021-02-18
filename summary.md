@@ -535,7 +535,13 @@ space-between：两端对齐，项目之间的间隔都相等。
 space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
 
 flex:1
+[flex:0 flex:1 flex:none flex:auto应该在什么场景下使用？](https://www.zhangxinxu.com/wordpress/2020/10/css-flex-0-1-none/)
 一个无单位数(`<number>`): 它会被当作flex:`<number>` 1 0; `<flex-shrink>`的值被假定为1，然后`<flex-basis>` 的值被假定为0。
+ flex CSS简写属性设置了弹性项目如何增大或缩小以适应其弹性容器中可用的空间
+flex属性是flex-grow，flex-shrink和flex-basis这3个CSS属性的缩写
+flex-basis默认值是auto，flex-grow默认值是0，flex-shrink默认值是1。
+>元素尺寸可以弹性增大，也可以弹性变小，具有十足的弹性，但是flex:1在尺寸不足时会优先最小化内容尺寸，flex:auto在尺寸不足时会优先最大化内容尺寸。
+![](imgf/21.png)
 
 ## js
 ### .querySelectorAll()
@@ -1712,4 +1718,15 @@ var today = new Date()
 var d1 = new Date("October 13, 1975 11:13:00")
 var d2 = new Date(79,5,24)
 var d3 = new Date(79,5,24,11,33,0)
+```
+
+# sortable list
+##js
+### .closest()
+closest() 方法返回被选元素的第一个祖先元素。
+```js
+//返回 <span> 的第一个祖先元素，是一个 <ul> 元素：
+$(document).ready(function(){
+    $("span").closest("ul").css({"color":"red","border":"2px solid red"});
+});
 ```

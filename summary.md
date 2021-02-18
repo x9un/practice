@@ -1595,3 +1595,60 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-origin
 ```css
 transform-origin: x-axis y-axis z-axis;
 ```
+
+# break-out game
+## html
+### canvas
+Canvas API 提供了一个通过JavaScript 和 HTML的`<canvas>`元素来绘制图形的方式。它可以用于动画、游戏画面、数据可视化、图片编辑以及实时视频处理等方面。
+
+Canvas API主要聚焦于2D图形。而同样使用`<canvas>`元素的 WebGL API 则用于绘制硬件加速的2D和3D图形。
+
+HTML5 `<canvas>` 元素用于图形的绘制，通过脚本 (通常是JavaScript)来完成.
+`<canvas>` 标签只是图形容器，必须使用脚本来绘制图形。
+  一个画布在网页中是一个矩形框，通过 `<canvas>` 元素来绘制.
+注意: 默认情况下 `<canvas>` 元素没有边框和内容。
+`<canvas>`简单实例如下:
+```html
+<canvas id="myCanvas" width="200" height="100"></canvas>
+```
+注意: 标签通常需要指定一个id属性 (脚本中经常引用), width 和 height 属性定义的画布的大小.
+```js
+const ctx = canvas.getContext('2d');
+```
+## js
+### canvas
+```js
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+ctx.beginPath();
+ctx.lineWidth = "5";
+ctx.strokeStyle = "green"; // Green path
+ctx.moveTo(0, 75);
+ctx.lineTo(250, 75);
+ctx.stroke(); // Draw it
+
+ctx.beginPath();
+ctx.strokeStyle = "purple"; // Purple path
+ctx.moveTo(50, 0);
+ctx.lineTo(150, 130);
+ctx.stroke(); // Draw it
+```
+![](imgf/20.png)
+
+```js
+// Draw ball on canvas
+function drawBall() {
+  ctx.beginPath();
+  ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2);
+  ctx.fillStyle = ball.visible ? '#0095dd' : 'transparent';
+  ctx.fill();
+  ctx.closePath();
+}
+```
+
+```js
+void ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+/*  圆弧路径的圆心在 (x, y) 位置，半径为 r ，根据anticlockwise （默认为顺时针）指定的方向从 startAngle 开始绘制，到 endAngle 结束 */
+```
+fill（）方法填充当前图形（路径）。默认颜色是黑色。

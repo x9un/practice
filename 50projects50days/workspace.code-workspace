@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\50projects50days\\progress-steps"
+		},
+		{
+			"path": "source\\MYprogress-steps"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "MYprogress-steps"
+	}
+}

@@ -97,13 +97,12 @@ border-box 告诉浏览器：你想要设置的边框和内边距的值是包含
 
 + fixed
 元素会被移出正常文档流，并不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。fixed 属性会创建新的层叠上下文。当元素祖先的 transform, perspective 或 filter 属性非 none 时，容器由视口改为该祖先。
+position:fixed 的元素将相对于屏幕视口（viewport）的位置来指定其位置。并且元素的位置在屏幕滚动时不会改变
+
 
 + sticky
 元素根据正常文档流进行定位，然后相对它的最近滚动祖先（nearest scrolling ancestor）和 containing block (最近块级祖先 nearest block-level ancestor)，包括table-related元素，基于top, right, bottom, 和 left的值进行偏移。偏移值不会影响任何其他元素的位置。
 该值总是创建一个新的层叠上下文（stacking context）。注意，一个sticky元素会“固定”在离它最近的一个拥有“滚动机制”的祖先上（当该祖先的overflow 是 hidden, scroll, auto, 或 overlay时），即便这个祖先不是最近的真实可滚动祖先。这有效地抑制了任何“sticky”行为
-
-## visibility:hidden
-元素框是不可见的（未绘制），但仍会正常影响布局。如果他们的元素的后代将是可见的visibility设置visible。元素无法获得焦点（例如，在选项卡索引中导航时）。
 
 ## cursor
 cursor CSS 属性设置光标的类型（如果有），在鼠标指针悬停在元素上时显示相应样式。
@@ -155,6 +154,9 @@ justify-content: left;       /* Pack items from the left */
 justify-content: right;      /* Pack items from the right */
 ```
 center：![](imgf/03.png)
+
+## visibility:hidden
+元素框是不可见的（未绘制），但仍会正常影响布局。如果他们的元素的后代将是可见的visibility设置visible。元素无法获得焦点（例如，在选项卡索引中导航时）。
 
 ## box-shadow
 ```css
@@ -1025,20 +1027,6 @@ button:active {
   transform: scale(0.95);
 }
 ```
-## header img设置
-```css
-  background-image: url('...');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-```
-+ background-size 设置背景图片大小。图片可以保有其原有的尺寸，或者拉伸到新的尺寸，或者在保持其原有比例的同时缩放到元素的可用空间的尺寸。
-cover
-缩放背景图片以完全覆盖背景区，可能背景图片部分看不见。和 contain 值相反，cover 值尽可能大的缩放背景图像并保持图像的宽高比例（图像不会被压扁）。该背景图以它的全部宽或者高覆盖所在容器。当容器和背景图大小不同时，背景图的 左/右 或者 上/下 部分会被裁剪。
-
-+ background-position
-background-position 为每一个背景图片设置初始位置。 这个位置是相对于由 background-origin 定义的位置图层的。
-两个值的语法: 一个定义 x 坐标，另一个定义 y 坐标。
 
 ## conic-gradient()
 https://www.cnblogs.com/coco1s/p/7079529.html
@@ -1057,12 +1045,37 @@ https://www.cnblogs.com/coco1s/p/7079529.html
 ```
 ![](imgf/19.png)
 
+## header img设置
+```css
+  background-image: url('...');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+```
++ background-size 设置背景图片大小。图片可以保有其原有的尺寸，或者拉伸到新的尺寸，或者在保持其原有比例的同时缩放到元素的可用空间的尺寸。
+cover
+缩放背景图片以完全覆盖背景区，可能背景图片部分看不见。和 contain 值相反，cover 值尽可能大的缩放背景图像并保持图像的宽高比例（图像不会被压扁）。该背景图以它的全部宽或者高覆盖所在容器。当容器和背景图大小不同时，背景图的 左/右 或者 上/下 部分会被裁剪。
+
++ background-position
+background-position 为每一个背景图片设置初始位置。 这个位置是相对于由 background-origin 定义的位置图层的。
+两个值的语法: 一个定义 x 坐标，另一个定义 y 坐标。
+
+## filter
+CSS属性将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像，背景和边框的渲染。
++ blur()
+blur() 函数将高斯模糊应用于输入图像。radius 定义了高斯函数的标准偏差值，或者屏幕上有多少像素相互融合，因此，较大的值将产生更多的模糊。若没有设置值，默认为0。该参数可以指定为 CSS 长度，但不接受百分比值。
+
 ## transform-origin
 https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-origin
 
 ```css
 transform-origin: x-axis y-axis z-axis;
 ```
+
+```css
+top left
+```
+![](imgf/23.png)
 
 ## 增加一个dark overlay
 ```css
@@ -1092,6 +1105,10 @@ body::after {
 visibility:hidden可以隐藏某个元素，但隐藏的元素仍需占用与未隐藏之前一样的空间。也就是说，该元素虽然被隐藏了，但仍然会影响布局。
 
 display:none可以隐藏某个元素，且隐藏的元素不会占用任何空间。也就是说，该元素不但被隐藏了，而且该元素原本占用的空间也会从页面布局中消失。
+
+## +
+CSS兄弟相邻选择器加号“+”，可以选择指定元素相邻的下一个元素
+
 
 # html
 ## http-equiv="X-UA-Compatible"
@@ -1182,12 +1199,6 @@ crossorigin:
 ```
 ![](imgf/11.png)
 
-## img-alt
-alt:alt 属性是一个必需的属性，它规定在图像无法显示时的替代文本  
-
-## input-value
-预定义
-
 ## aside
 >HTML <aside> 元素表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常表现为侧边栏或者标注框（call-out boxes）。
 
@@ -1197,6 +1208,13 @@ alt:alt 属性是一个必需的属性，它规定在图像无法显示时的替
 </aside>
 ```
 ![](imgf/14.png)
+
+## img-alt
+alt:alt 属性是一个必需的属性，它规定在图像无法显示时的替代文本  
+
+## input-value
+预定义
+
 ## main
 >HTML <main> 元素呈现了文档的 <body> 或应用的主体部分。主体部分由与文档直接相关，或者扩展于文档的中心主题、应用的主要功能部分的内容组成。
 
@@ -1212,6 +1230,9 @@ HTML `<nav>` 元素表示页面的一部分，其目的是在当前文档或其�
 
 ## svg line & circle
 line元素是一个SVG基本形状，用来创建一条连接两个点的线。
+
+## section
+表示一个包含在HTML文档中的独立部分，它没有更具体的语义元素来表示，一般来说会有包含一个标题。
 
 ## audio
 ```html
@@ -1753,3 +1774,4 @@ https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
 
 ## .isNaN()
 如果 x 是特殊的非数字值 NaN（或者能被转换为这样的值），返回的值就是 true。如果 x 是其他值,则返回 false。
+

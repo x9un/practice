@@ -5,6 +5,250 @@
 ---
 
 # css
+## align-items
+>CSS align-items属性将所有直接子节点上的align-self值设置为一个组。 align-self属性设置项目在其包含块中在交叉轴方向上的对齐方式。
+![](imgf/01.png)
+![](imgf/02.png)
+
+
+## backface-visibility
+CSS 属性backface-visibility 指定当元素背面朝向观察者时是否可见。
+```css
+/* Keyword values */
+backface-visibility: visible;
+backface-visibility: hidden;
+```
+
+## background
+background-image:url('')
+一般会跟上
+  background-repeat
+  background-size
+  background-position
+样式设置
+>
+在no-repeat情况下，如果容器宽高比与图片宽高比不同，
+cover：图片宽高比不变、铺满整个容器的宽高，而图片多出的部分则会被截掉；
+contain:图片自身的宽高比不变，缩放至图片自身能完全显示出来，所以容器会有留白区域；
+在repeat情况下：
+cover:与上述相同；
+contain:容器内至少有一张完整的图，容器留白区域则平铺背景图，铺不下的再裁掉。
+
+## background-position
+```css
+/* Keyword values */
+background-position: top;
+background-position: bottom;
+background-position: left;
+background-position: right;
+background-position: center;
+
+/* <percentage> values */
+background-position: 25% 75%;
+
+/* <length> values */
+background-position: 0 0;
+background-position: 1cm 2cm;
+background-position: 10ch 8em;
+
+/* Multiple images */
+background-position: 0 0, center;
+
+/* Edge offsets values */
+background-position: bottom 10px right 20px;
+background-position: right 3em bottom 10px;
+background-position: bottom 10px right;
+background-position: top right 10px;
+
+/* Global values */
+background-position: inherit;
+background-position: initial;
+background-position: unset;
+```
+
+## background-repeat
+ background-repeat CSS 属性定义背景图像的重复方式。背景图像可以沿着水平轴，垂直轴，两个轴重复，或者根本不重复。
+
+```
+ /* 单值语法 */
+background-repeat: repeat-x;
+background-repeat: repeat-y;
+background-repeat: repeat;
+background-repeat: space;
+background-repeat: round;
+background-repeat: no-repeat;
+
+/* 双值语法: 水平horizontal | 垂直vertical */
+background-repeat: repeat space;
+background-repeat: repeat repeat;
+background-repeat: round space;
+background-repeat: no-repeat round;
+
+background-repeat: inherit;
+```
+
+
+## background-size
+```css
+/* 关键字 */
+background-size: cover
+background-size: contain
+
+/* 一个值: 这个值指定图片的宽度，图片的高度隐式的为auto */
+background-size: 50%
+background-size: 3em
+background-size: 12px
+background-size: auto
+
+/* 两个值 */
+/* 第一个值指定图片的宽度，第二个值指定图片的高度 */
+background-size: 50% auto
+background-size: 3em 25%
+background-size: auto 6px
+background-size: auto auto
+
+/* 逗号分隔的多个值：设置多重背景 */
+background-size: auto, auto     /* 不同于background-size: auto auto */
+background-size: 50%, 25%, 25%
+background-size: 6px, auto, contain
+
+/* 全局属性 */
+background-size: inherit;
+background-size: initial;
+background-size: unset;
+```
+
+## flex-wrap
+CSS flex-wrap 指定 flex 元素单行显示还是多行显示 。如果允许换行，这个属性允许你控制行的堆叠方向。  
+
++ nowrap
+flex 的元素被摆放到到一行，这可能导致溢出 flex 容器。 cross-start  会根据 flex-direction 的值 相当于 start 或 before。
++ wrap
+flex 元素 被打断到多个行中。cross-start 会根据 flex-direction 的值选择等于start 或before。cross-end 为确定的 cross-start 的另一端。
++ wrap-reverse
+和 wrap 的行为一样，但是 cross-start 和 cross-end 互换。
+
+## justify-content
+>CSS justify-content 属性定义了浏览器之间，如何分配顺着弹性容器主轴(或者网格行轴) 的元素之间及其周围的空间。与flex布局方式相关
+```css
+/* Positional alignment */
+justify-content: center;     /* 居中排列 */
+justify-content: start;      /* Pack items from the start */
+justify-content: end;        /* Pack items from the end */
+justify-content: flex-start; /* 从行首起始位置开始排列 */
+justify-content: flex-end;   /* 从行尾位置开始排列 */
+justify-content: left;       /* Pack items from the left */
+justify-content: right;      /* Pack items from the right */
+
+/* Baseline alignment */
+justify-content: baseline;
+justify-content: first baseline;
+justify-content: last baseline;
+
+/* Distributed alignment */
+justify-content: space-between;  /* 均匀排列每个元素
+                                   首个元素放置于起点，末尾元素放置于终点 */
+justify-content: space-around;  /* 均匀排列每个元素
+                                   每个元素周围分配相同的空间 */
+justify-content: space-evenly;  /* 均匀排列每个元素
+                                   每个元素之间的间隔相等 */
+justify-content: stretch;       /* 均匀排列每个元素
+                                   'auto'-sized 的元素会被拉伸以适应容器的大小 */
+
+/* Overflow alignment */
+justify-content: safe center;
+justify-content: unsafe center;
+
+/* Global values */
+justify-content: inherit;
+justify-content: initial;
+justify-content: unset;
+```
+center：![](imgf/03.png)
+
+## position
++ relative
+当一个元素的position属性设置为relative，它将使用相对定位。 相对定位的元素在普通流中进行定位，它将出现在文档流中原本的位置。 然而，可以通过设置水平或垂直偏移量，使它相对于原本的位置，偏移指定的距离，移动到新的位置。position:relative 对 table-\*-group, table-row, table-column, table-cell, table-caption 元素无效。
+相对定位元素经常被用来作为绝对定位元素的容器块。
+
+>
+（1）relative 生成相对定位的元素，相对于其正常位置进行定位。
+（2）相对定位完成的过程如下：
+首先按默认方式（static）生成一个元素(并且元素像层一样浮动了起来)。
+然后相对于以前的位置移动，移动的方向和幅度由 left、right、top、bottom 属性确定，偏移前的位置保留不动。
+
+```css
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: red;
+  color: white;
+}
+
+#two {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  background: blue;
+}
+```
+
+![](imgf/00.png)
+
++ static
+该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
+
++ relative
+该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。position:relative 对 table-\*-group, table-row, table-column, table-cell, table-caption 元素无效。
+
++ absolute
+元素会被移出正常文档流，并不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。
+绝对定位，盒子的位置以它的包含框为基准进行偏移。绝对定位的盒子从标准流中脱离。这意味着它们对其后的兄弟盒子的定位没有影响，其它的盒子就好像这个盒子不存在一样  
++ fixed
+元素会被移出正常文档流，并不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。fixed 属性会创建新的层叠上下文。当元素祖先的 transform, perspective 或 filter 属性非 none 时，容器由视口改为该祖先。
+position:fixed 的元素将相对于屏幕视口（viewport）的位置来指定其位置。并且元素的位置在屏幕滚动时不会改变
+
+
++ sticky
+元素根据正常文档流进行定位，然后相对它的最近滚动祖先（nearest scrolling ancestor）和 containing block (最近块级祖先 nearest block-level ancestor)，包括table-related元素，基于top, right, bottom, 和 left的值进行偏移。偏移值不会影响任何其他元素的位置。
+该值总是创建一个新的层叠上下文（stacking context）。注意，一个sticky元素会“固定”在离它最近的一个拥有“滚动机制”的祖先上（当该祖先的overflow 是 hidden, scroll, auto, 或 overlay时），即便这个祖先不是最近的真实可滚动祖先。这有效地抑制了任何“sticky”行为
+
++ 相对父元素进行定位
+父元素设置为 absolute
+子元素设置为 relative
+
+## transform
+>transform属性允许你旋转，缩放，倾斜或平移给定元素。这是通过修改CSS视觉格式化模型的坐标空间来实现的
+
+transform: scale(1.2);
+放大1.2倍
+
+transform: rotateX(-45deg);
+rotationX（）CSS函数定义了一个变换，该变换绕着横坐标（水平轴）旋转元素而不会变形
+rotateY() 函数定义了一个转换，它可以让一个元素围绕纵坐标(垂直轴)旋转，而不会对其进行变形
+当rotate()中的值为正值时，顺时针旋转
+rotateX(deg)  定义沿着X轴的3D旋转
+rotateY(deg)  定义沿着Y轴的3D旋转
+rotateZ(deg)  定义沿着Z轴的3D旋转  
+rotateZ()如果为正，则顺时针方向移动；如果为负，则逆时针方向移动。   
+
+translateY() 在页面垂直移动元素
+![](imgf/22.png)
+
+百分比指的是盒子高度，盒子由属性 transform-box 定义。
+transform: translateY(-50%) 实现元素垂直居中效果
+```css
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+```
+
++ skewY() 函数定义了一个转换，该转换将元素倾斜到二维平面上的垂直方向
+![](imgf/24.png)
+![](imgf/25.png)
+
+
 ## vh(view height)
 ```css
 body{
@@ -54,55 +298,6 @@ border-box 告诉浏览器：你想要设置的边框和内边距的值是包含
 }
 ```
 
-## position
-+ relative
-当一个元素的position属性设置为relative，它将使用相对定位。 相对定位的元素在普通流中进行定位，它将出现在文档流中原本的位置。 然而，可以通过设置水平或垂直偏移量，使它相对于原本的位置，偏移指定的距离，移动到新的位置。position:relative 对 table-\*-group, table-row, table-column, table-cell, table-caption 元素无效。
-相对定位元素经常被用来作为绝对定位元素的容器块。
-
->
-（1）relative 生成相对定位的元素，相对于其正常位置进行定位。
-（2）相对定位完成的过程如下：
-首先按默认方式（static）生成一个元素(并且元素像层一样浮动了起来)。
-然后相对于以前的位置移动，移动的方向和幅度由 left、right、top、bottom 属性确定，偏移前的位置保留不动。
-
-
-
-```css
-.box {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  background: red;
-  color: white;
-}
-
-#two {
-  position: relative;
-  top: 20px;
-  left: 20px;
-  background: blue;
-}
-```
-
-![](imgf/00.png)
-
-+ static
-该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
-
-+ relative
-该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。position:relative 对 table-\*-group, table-row, table-column, table-cell, table-caption 元素无效。
-
-+ absolute
-元素会被移出正常文档流，并不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。
-
-+ fixed
-元素会被移出正常文档流，并不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。fixed 属性会创建新的层叠上下文。当元素祖先的 transform, perspective 或 filter 属性非 none 时，容器由视口改为该祖先。
-position:fixed 的元素将相对于屏幕视口（viewport）的位置来指定其位置。并且元素的位置在屏幕滚动时不会改变
-
-
-+ sticky
-元素根据正常文档流进行定位，然后相对它的最近滚动祖先（nearest scrolling ancestor）和 containing block (最近块级祖先 nearest block-level ancestor)，包括table-related元素，基于top, right, bottom, 和 left的值进行偏移。偏移值不会影响任何其他元素的位置。
-该值总是创建一个新的层叠上下文（stacking context）。注意，一个sticky元素会“固定”在离它最近的一个拥有“滚动机制”的祖先上（当该祖先的overflow 是 hidden, scroll, auto, 或 overlay时），即便这个祖先不是最近的真实可滚动祖先。这有效地抑制了任何“sticky”行为
 
 ## cursor
 cursor CSS 属性设置光标的类型（如果有），在鼠标指针悬停在元素上时显示相应样式。
@@ -136,24 +331,7 @@ inline-block的元素特点：
 (准确地说，应用此特性的元素呈现为内联对象，周围元素保持在同一行，但可以设置宽度和高度地块元素的属性)
 ![](imgf/18.png)
 
-## align-items
->CSS align-items属性将所有直接子节点上的align-self值设置为一个组。 align-self属性设置项目在其包含块中在交叉轴方向上的对齐方式。
-![](imgf/01.png)
-![](imgf/02.png)
 
-## justify-content
->CSS justify-content 属性定义了浏览器之间，如何分配顺着弹性容器主轴(或者网格行轴) 的元素之间及其周围的空间。与flex布局方式相关
-```css
-/* Positional alignment */
-justify-content: center;     /* 居中排列 */
-justify-content: start;      /* Pack items from the start */
-justify-content: end;        /* Pack items from the end */
-justify-content: flex-start; /* 从行首起始位置开始排列 */
-justify-content: flex-end;   /* 从行尾位置开始排列 */
-justify-content: left;       /* Pack items from the left */
-justify-content: right;      /* Pack items from the right */
-```
-center：![](imgf/03.png)
 
 ## visibility:hidden
 元素框是不可见的（未绘制），但仍会正常影响布局。如果他们的元素的后代将是可见的visibility设置visible。元素无法获得焦点（例如，在选项卡索引中导航时）。
@@ -436,30 +614,6 @@ p:nth-of-type(4n) {
 
 添加后可应用transform
 
-## transform
->transform属性允许你旋转，缩放，倾斜或平移给定元素。这是通过修改CSS视觉格式化模型的坐标空间来实现的
-
-transform: scale(1.2);
-放大1.2倍
-
-transform: rotateX(-45deg);
-rotationX（）CSS函数定义了一个变换，该变换绕着横坐标（水平轴）旋转元素而不会变形
-rotateY() 函数定义了一个转换，它可以让一个元素围绕纵坐标(垂直轴)旋转，而不会对其进行变形
-当rotate()中的值为正值时，顺时针旋转
-rotateX(deg)  定义沿着X轴的3D旋转
-rotateY(deg)  定义沿着Y轴的3D旋转
-rotateZ(deg)  定义沿着Z轴的3D旋转
-
-translateY() 在页面垂直移动元素
-![](imgf/22.png)
-
-百分比指的是盒子高度，盒子由属性 transform-box 定义。
-transform: translateY(-50%) 实现元素垂直居中效果
-```css
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-```
 
 ## not
 .seat:not(.occupied):hover
@@ -612,102 +766,7 @@ input[type=range]::-webkit-slider-runnable-track{
 ## ::-ms-fill-lower
 的CSS伪元素表示的滑块控制的轨道的下部; 即，对应于小于拇指当前选择的值的值的部分。滑块控件是<input type =“ range”>的一种可能表示形式。::-ms-fill-lower
 
-## background
-background-image:url('')
-一般会跟上
-  background-repeat
-  background-size
-  background-position
-  overflow
-样式设置
->
-在no-repeat情况下，如果容器宽高比与图片宽高比不同，
-cover：图片宽高比不变、铺满整个容器的宽高，而图片多出的部分则会被截掉；
-contain:图片自身的宽高比不变，缩放至图片自身能完全显示出来，所以容器会有留白区域；
-在repeat情况下：
-cover:与上述相同；
-contain:容器内至少有一张完整的图，容器留白区域则平铺背景图，铺不下的再裁掉。
 
-## background-position
-```css
-/* Keyword values */
-background-position: top;
-background-position: bottom;
-background-position: left;
-background-position: right;
-background-position: center;
-
-/* <percentage> values */
-background-position: 25% 75%;
-
-/* <length> values */
-background-position: 0 0;
-background-position: 1cm 2cm;
-background-position: 10ch 8em;
-
-/* Multiple images */
-background-position: 0 0, center;
-
-/* Edge offsets values */
-background-position: bottom 10px right 20px;
-background-position: right 3em bottom 10px;
-background-position: bottom 10px right;
-background-position: top right 10px;
-
-/* Global values */
-background-position: inherit;
-background-position: initial;
-background-position: unset;
-```
-## background-size
-```css
-/* 关键字 */
-background-size: cover
-background-size: contain
-
-/* 一个值: 这个值指定图片的宽度，图片的高度隐式的为auto */
-background-size: 50%
-background-size: 3em
-background-size: 12px
-background-size: auto
-
-/* 两个值 */
-/* 第一个值指定图片的宽度，第二个值指定图片的高度 */
-background-size: 50% auto
-background-size: 3em 25%
-background-size: auto 6px
-background-size: auto auto
-
-/* 逗号分隔的多个值：设置多重背景 */
-background-size: auto, auto     /* 不同于background-size: auto auto */
-background-size: 50%, 25%, 25%
-background-size: 6px, auto, contain
-
-/* 全局属性 */
-background-size: inherit;
-background-size: initial;
-background-size: unset;
-```
-## background-repeat
- background-repeat CSS 属性定义背景图像的重复方式。背景图像可以沿着水平轴，垂直轴，两个轴重复，或者根本不重复。
-
-```
- /* 单值语法 */
-background-repeat: repeat-x;
-background-repeat: repeat-y;
-background-repeat: repeat;
-background-repeat: space;
-background-repeat: round;
-background-repeat: no-repeat;
-
-/* 双值语法: 水平horizontal | 垂直vertical */
-background-repeat: repeat space;
-background-repeat: repeat repeat;
-background-repeat: round space;
-background-repeat: no-repeat round;
-
-background-repeat: inherit;
-```
 
 ## max-width & width
  若同时设置了width和max-width两个属性，则以下面规则显示宽度
@@ -799,6 +858,7 @@ transition: inherit;
 transition: initial;
 transition: unset;
 ```
+transition需要触发一个事件才会随着时间改变其CSS属性；animation在不需要触发任何事件的情况下，也可以显式的随时间变化来改变元素CSS属性，达到一种动画的效果。  
 
 ## z-index
 https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
@@ -820,6 +880,45 @@ CSS 伪类 :first-of-type表示一组兄弟元素中其类型的第一个元素�
 
 ## text-decoration
 text-decoration 这个CSS 属性是用于设置文本的修饰线外观的（下划线、上划线、贯穿线/删除线 或闪烁）
+
+text-decoration-line
+文本修饰的位置, 如下划线underline，删除线line-through
+text-decoration-color
+文本修饰的颜色
+text-decoration-style
+文本修饰的样式, 如波浪线wavy实线solid虚线dashed
+text-decoration-thickness
+文本修饰线的粗细
+
+```css
+.under {
+  text-decoration: underline red;
+}
+
+.over {
+  text-decoration: wavy overline lime;
+}
+
+.line {
+  text-decoration: line-through;
+}
+
+.plain {
+  text-decoration: none;
+}
+
+.underover {
+  text-decoration: dashed underline overline;
+}
+
+.blink {
+  text-decoration: blink;
+}
+
+.shorthand {
+  text-decoration: underline solid red 5px;
+}
+```
 
 ## overflow
 CSS属性 overflow 定义当一个元素的内容太大而无法适应 块级格式化上下文 时候该做什么。它是 overflow-x 和overflow-y的 简写属性 。
@@ -893,6 +992,14 @@ animation-play-state: paused;
     transform: rotate(360deg);
   }
 }
+
+@keyframes identifier {
+  0% { top: 0; left: 0; }
+  30% { top: 50px; }
+  68%, 72% { left: 50px; }
+  100% { top: 100px; left: 100%; }
+}
+
 ```
 关键帧 @keyframes at-rule 规则通过在动画序列中定义关键帧（或waypoints）的样式来控制CSS动画序列中的中间步骤。和 转换 transition 相比，关键帧 keyframes 可以控制动画序列的中间步骤。
 
@@ -955,6 +1062,14 @@ linear-gradient(to left top, blue, red);
 
 /* 从下到上，从蓝色开始渐变、到高度40%位置是绿色渐变开始、最后以红色结束 */
 linear-gradient(0deg, blue, green 40%, red);
+
+  background-image: linear-gradient(
+    to bottom,
+    #eafbff 0%,
+    #eafbff 50%,
+    #5290f9 50%,
+    #5290f9 100%
+  );
 ```
 ## ::after
 css的伪元素，之所以被称为伪元素，是因为他们不是真正的页面元素，html没有对应的元素，但是其所有用法和表现行为与真正的页面元素一样，可以对其使用诸如页面元素一样的css样式，表面上看上去貌似是页面的某些元素来展现，实际上是css样式展现的行为，因此被称为伪元素
@@ -1011,13 +1126,7 @@ transform-style: inherit;
 transform-style: initial;
 transform-style: unset;
 ```
-## backface-visibility
-CSS 属性backface-visibility 指定当元素背面朝向观察者时是否可见。
-```css
-/* Keyword values */
-backface-visibility: visible;
-backface-visibility: hidden;
-```
+
 
 ## :active
 CSS :active 伪类匹配被用户激活的元素。它让页面能在浏览器监测到激活时给出反馈。当用鼠标交互时，它代表的是用户按下按键和松开按键之间的时间。
@@ -1173,16 +1282,6 @@ crossorigin:
 - use-credentials：会发起一个带有认证信息 (发送 cookie, X.509 证书和 HTTP 基本认证信息) 的跨域请求 (即包含 Origin: HTTP 头). 如果服务器没有给出源站凭证 (不设置 Access-Control-Allow-Origin: HTTP 头), 这张图片就会被污染并限制使用.
 - 当不设置该属性时, 资源将会不使用 CORS 加载 (即不发送 Origin: HTTP 头), 这将阻止其在 元素中进行使用. 若设置了非法的值, 则视为使用 anonymous.
 
-## video
-
-```html
-    <video
-      src="videos/gone.mp4"
-      id="video"
-      class="screen"
-      poster="img/poster.png"
-    ></video>
-```
 
 ## i 标签
 `<i>` 标签显示斜体文本效果。
@@ -1198,6 +1297,18 @@ crossorigin:
 </form>
 ```
 ![](imgf/11.png)
+
+## video
+
+```html
+    <video
+      src="videos/gone.mp4"
+      id="video"
+      class="screen"
+      poster="img/poster.png"
+    ></video>
+```
+
 
 ## aside
 >HTML <aside> 元素表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常表现为侧边栏或者标注框（call-out boxes）。
@@ -1285,14 +1396,25 @@ const ctx = canvas.getContext('2d');
 ```
 
 # js
-## .querySelector()
-querySelector() 方法返回文档中匹配指定 CSS 选择器的一个元素
-
-## .test()
-test() 方法执行一个检索，用来查看正则表达式与指定的字符串是否匹配。返回 true 或 false。
+##.animate()
+Element 接口的animate() 方法是一个创建新Animation的便捷方法，将它应用于元素，然后运行动画。它将返回一个新建的 Animation 对象实例
+```js
+document.getElementById("tunnel").animate([
+  // keyframes
+  { transform: 'translateY(0px)' },
+  { transform: 'translateY(-300px)' }
+], {
+  // timing options
+  duration: 1000,
+  iterations: Infinity
+});
+```
 
 ## .charAt()
 charAt() 方法从一个字符串中返回指定的字符。
+
+## .querySelector()
+querySelector() 方法返回文档中匹配指定 CSS 选择器的一个元素
 
 ## .slice()
 slice() 方法返回一个新的数组对象，这一对象是一个由 begin 和 end 决定的原数组的浅拷贝（包括 begin，不包括end）。原始数组不会被改变。
@@ -1310,6 +1432,9 @@ console.log(animals.slice(2, 4));
 console.log(animals.slice(1, 5));
 // expected output: Array ["bison", "camel", "duck", "elephant"]
 ```
+
+## .test()
+test() 方法执行一个检索，用来查看正则表达式与指定的字符串是否匹配。返回 true 或 false。
 
 ## .preventDefault()
 Event 接口的 preventDefault()方法，告诉user agent：如果此事件没有被显式处理，它默认的动作也不应该照常执行。此事件还是继续传播，除非碰到事件侦听器调用stopPropagation() 或stopImmediatePropagation()，才停止传播。
@@ -1406,8 +1531,14 @@ array1.forEach(element => console.log(element));
 // expected output: "c"
 ```
 
-## classList
+## .classList
 Element.classList 是一个只读属性，返回一个元素的类属性的实时 DOMTokenList 集合。
+
++ add(class1, class2, ...)  在元素中添加一个或多个类名。
+如果指定的类名已存在，则不会添加
+
++ remove(class1, class2, ...) 移除元素中一个或多个类名。
+注意： 移除不存在的类名，不会报错。
 
 相比将 element.className 作为以空格分隔的字符串来使用，classList 是一种更方便的访问元素的类列表的方法。
 
@@ -1774,4 +1905,12 @@ https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
 
 ## .isNaN()
 如果 x 是特殊的非数字值 NaN（或者能被转换为这样的值），返回的值就是 true。如果 x 是其他值,则返回 false。
+
+## Node.parentElement
+返回当前节点的父元素节点，如果该元素没有父节点，或者父节点不是一个 DOM 元素，则返回 null。
+和 Node.parentNode 的区别是它只返回 element 而后者有可能返回 document 节点
+
+## 兄弟节点
+在获取前一个兄弟节点的时候可以使用previousSibling和previousElementSibling。他们的区别是previousSibling会匹配字符，包括换行和空格，而不是节点。previousElementSibling则直接匹配节点。  
+同previousSibling和previousElementSibling，nextSibling和nextElementSibling也是类似的。  
 
